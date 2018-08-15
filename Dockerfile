@@ -12,7 +12,6 @@ RUN npm install
 
 # copy dirs
 COPY ./util ./util
-COPY ./config ./config
 COPY ./routes ./routes
 COPY ./services ./services
 COPY ./app.js ./app.js
