@@ -13,7 +13,7 @@ const ErrorMessage = props => (
     </BpkGridRow>
     <BpkGridRow>
       <BpkText tagName="h1" textStyle="base" className={STYLES.App__error}>
-        {props.error}
+        {props.message}
       </BpkText>
     </BpkGridRow>
     <BpkGridRow>
@@ -27,5 +27,5 @@ const ErrorMessage = props => (
 export default ErrorMessage;
 
 ErrorMessage.propTypes = {
-  error: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
 };

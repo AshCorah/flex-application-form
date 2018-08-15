@@ -51,7 +51,6 @@ export default class RegistrationForm extends Component {
 
         this.setState({ formValid: true, registrationSuccessful: true });
       } catch (error) {
-        console.log(error);
         this.setState({ error: 'Something went wrong when registering.' });
       }
     } else {
