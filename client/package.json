@@ -32,7 +32,8 @@
     "npm": "^6.3.0",
     "prop-types": "^15.6.2",
     "react": "^15.6.2",
-    "react-dom": "^15.6.2"
+    "react-dom": "^15.6.2",
+    "react-s3-uploader": "^4.8.0"
   },
   "proxy": "http://localhost:1201"
 }
