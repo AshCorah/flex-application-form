@@ -7,6 +7,7 @@ import BpkLabel from 'bpk-component-label';
 import BpkCard from 'bpk-component-card';
 import { withButtonAlignment, withRtlSupport } from 'bpk-component-icon';
 import ArrowIcon from 'bpk-component-icon/sm/long-arrow-right';
+import ReactS3Uploader from 'react-s3-uploader';
 import BpkFormValidation from 'bpk-component-form-validation';
 import axios from 'axios';
 import SuccessMessage from '../Util/SuccessMessage/index';
@@ -42,7 +43,7 @@ export default class RegistrationForm extends Component {
 
     if (this.isValid()) {
       try {
-        await axios.post('/upload', {
+        await axios.post('/application/upload', {
           firstname,
           surname,
         });
@@ -140,6 +141,14 @@ export default class RegistrationForm extends Component {
                     clearButtonLabel="Clear"
                     onClear={() => this.setState({ surname: '' })}
                   />
+                </BpkGridColumn>
+              </BpkGridRow>
+              <BpkGridRow>
+                <BpkGridColumn width={12}>
+                  <BpkLabel htmlFor="origin">
+                    Please upload your cv*
+                  </BpkLabel>
+                  <ReactS3Uploader />
                 </BpkGridColumn>
               </BpkGridRow>
               <BpkGridRow>
