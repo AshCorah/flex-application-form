@@ -7,9 +7,9 @@ import BpkLabel from 'bpk-component-label';
 import BpkCard from 'bpk-component-card';
 import { withButtonAlignment, withRtlSupport } from 'bpk-component-icon';
 import ArrowIcon from 'bpk-component-icon/sm/long-arrow-right';
-import ReactS3Uploader from 'react-s3-uploader';
 import BpkFormValidation from 'bpk-component-form-validation';
 import axios from 'axios';
+import S3Uploader from '../Util/S3Uploader/index';
 import SuccessMessage from '../Util/SuccessMessage/index';
 import ErrorMessage from '../Util/ErrorMessage/index';
 
@@ -43,13 +43,15 @@ export default class RegistrationForm extends Component {
 
     if (this.isValid()) {
       try {
-        await axios.post('/application/upload', {
+        await axios.post('http://localhost:1200/application/upload', {
           firstname,
           surname,
+          cv: "test",
         });
 
         this.setState({ formValid: true, registrationSuccessful: true });
       } catch (error) {
+        console.log(error);
         this.setState({ error: 'Something went wrong when registering.' });
       }
     } else {
@@ -64,7 +66,8 @@ export default class RegistrationForm extends Component {
     } = this.state;
 
     if (firstname
-      && surname) {
+      && surname
+    ) {
       return true;
     }
 
@@ -91,7 +94,7 @@ export default class RegistrationForm extends Component {
     return (
       <div className={STYLES.Form}>
         <main className={STYLES.Form__main}>
-          <BpkCard>
+          <BpkCard className={STYLES.Form__card}>
             <form onSubmit={this.onSubmit}>
               <BpkGridRow>
                 <BpkGridColumn width={12} padded={false}>
@@ -148,7 +151,7 @@ export default class RegistrationForm extends Component {
                   <BpkLabel htmlFor="origin">
                     Please upload your cv*
                   </BpkLabel>
-                  <ReactS3Uploader />
+                  <S3Uploader />
                 </BpkGridColumn>
               </BpkGridRow>
               <BpkGridRow>

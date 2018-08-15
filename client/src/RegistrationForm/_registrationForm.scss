@@ -14,12 +14,13 @@
   &__error {
     margin-bottom: $bpk-spacing-xs;
   }
-
   &__errorButton {
     margin-top: 1em;
   }
-
   &__errorContainer {
     margin-top: 4em;
+  }
+  &__card {
+    cursor: default;
   }
 }

@@ -5,8 +5,8 @@
 
   &__header {
     padding: $bpk-spacing-xl 0;
-    background-color: $bpk-color-blue-500;
-    background-image: $bpk-primary-gradient;
+    background-image: url('./img/banner.png');
+    background-size: cover;
     color: $bpk-color-white;
 
     @include bpk-box-shadow-sm;

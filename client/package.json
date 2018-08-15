@@ -35,5 +35,5 @@
     "react-dom": "^15.6.2",
     "react-s3-uploader": "^4.8.0"
   },
-  "proxy": "http://localhost:1201"
+  "proxy": "http://localhost:1200"
 }
