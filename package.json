@@ -15,7 +15,12 @@
     "test": "npm run test:client && npm run test:app"
   },
   "dependencies": {
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "body-parser": "^1.18.3",
+    "knex": "^0.15.2",
+    "pg": "^7.4.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
