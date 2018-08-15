@@ -1,0 +1,25 @@
+@import '~bpk-mixins';
+.Form {
+  text-align: center;
+  &__main {
+    padding: $bpk-spacing-base 0;
+    text-align: left;
+  }
+  &__text {
+    margin-bottom: $bpk-spacing-xs;
+  }
+  &__submit {
+    text-align: right;
+  }
+  &__error {
+    margin-bottom: $bpk-spacing-xs;
+  }
+
+  &__errorButton {
+    margin-top: 1em;
+  }
+
+  &__errorContainer {
+    margin-top: 4em;
+  }
+}

@@ -1,0 +1,36 @@
+version: "2"
+services:
+  postgres:
+    container_name: postgres_for_flex
+    image: postgres:9.5.12
+    restart: always
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./helper-files/restore_prism_db.sh:/docker-entrypoint-initdb.d/restore_flex_db.sh
+      - ./helper-files/TestDatabase.sql:/var/tmp/TestDatabase.sql:ro
+
+  flexapplication:
+    container_name: flex_application
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: "npm run dev:server"
+    environment:
+      - PORT=1201
+      - NODE_ENV=development
+    volumes:
+      - ./config:/usr/src/app/config:ro
+      - ./util:/usr/src/app/util:ro
+      - ./routes:/usr/src/app/routes:ro
+      - ./services:/usr/src/app/services:ro
+      - ./app.js:/usr/src/app/app.js:ro
+      - ./client/src:/usr/src/app/client/src:ro
+      - ./client/public:/usr/src/app/client/public:ro
+    ports:
+      - "1200:1200"
+    depends_on:
+      - postgres

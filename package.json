@@ -1,0 +1,24 @@
+{
+  "name": "flex_application_form",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Ash Corah",
+  "main": "app.js",
+  "scripts": {
+    "start": "cd client && npm run build && npm run dev:server",
+    "dev:server": "nodemon app.js",
+    "build": "cd client && npm run build",
+    "dev:client": "(cd ./client && npm start)",
+    "install": "(cd ./client && npm install --quiet)",
+    "test:app": "./node_modules/.bin/mocha './{,!(node_modules|client)/**/}*.test.js' --reporter spec",
+    "test:client": "(cd ./client && CI=true npm test)",
+    "test": "npm run test:client && npm run test:app"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.3"
+  }
+}
