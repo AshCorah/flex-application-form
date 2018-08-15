@@ -1,16 +1,12 @@
 'use strict';
 
 const express = require('express');
-const authentication = require('./routes/auth');
+const application = require('./routes/application');
 
 // App
 const app = express();
 
-
-app.get('/', (req, res) => {
-  res.send('Hello world\n');
-});
-
+app.use('/application', application);
 
 app.listen(1200, '0.0.0.0');
 
