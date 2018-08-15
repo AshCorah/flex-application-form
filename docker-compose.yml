@@ -23,7 +23,6 @@ services:
       - PORT=1201
       - NODE_ENV=development
     volumes:
-      - ./config:/usr/src/app/config:ro
       - ./util:/usr/src/app/util:ro
       - ./routes:/usr/src/app/routes:ro
       - ./services:/usr/src/app/services:ro
