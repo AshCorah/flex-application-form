@@ -43,7 +43,7 @@ export default class RegistrationForm extends Component {
 
     if (this.isValid()) {
       try {
-        await axios.post('http://localhost:1200/application/upload', {
+        await axios.post('/application/upload', {
           firstname,
           surname,
           cv: "test",

@@ -4,17 +4,18 @@ const knex = require('../util/knex-connector');
 const requestSignedUrl = () => rp.get('https://urlsigner-uiczqjvmcp.now.sh/?objectName=cv.pdf');
 
 const uploadToDb = (form) => {
-  const { firstname, lastname } = form;
+  const { firstname, surname, cv } = form;
   const db = knex.connect();
   return db('Applications')
     .returning('*')
     .insert({
       firstname,
-      lastname,
+      surname,
+      cv,
     });
 }
 
 module.exports = {
   requestSignedUrl,
-  uploadToS3,
+  uploadToDb,
 }
