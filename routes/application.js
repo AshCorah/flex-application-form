@@ -4,7 +4,6 @@ const applicationService = require('../services/application');
 const router = express.Router();
 
 router.post('/upload', async (req, res) => {
-  console.log('HIT')
   try {
     await applicationService.uploadToDb(req.body);
     res.sendStatus(200);

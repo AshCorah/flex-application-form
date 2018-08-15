@@ -19,9 +19,6 @@ services:
       context: .
       dockerfile: Dockerfile
     entrypoint: "npm run dev:server"
-    environment:
-      - PORT=1200
-      - NODE_ENV=development
     volumes:
       - ./util:/usr/src/app/util:ro
       - ./routes:/usr/src/app/routes:ro
