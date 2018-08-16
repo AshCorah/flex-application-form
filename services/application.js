@@ -1,8 +1,6 @@
 const rp = require('request-promise');
 const knex = require('../util/knex-connector');
 
-const requestSignedUrl = () => rp.get('https://urlsigner-uiczqjvmcp.now.sh/?objectName=cv.pdf');
-
 const uploadToDb = (form) => {
   const { firstname, surname, cv } = form;
   const db = knex.connect();
@@ -16,6 +14,5 @@ const uploadToDb = (form) => {
 }
 
 module.exports = {
-  requestSignedUrl,
   uploadToDb,
 }
