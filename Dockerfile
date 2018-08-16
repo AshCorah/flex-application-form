@@ -21,6 +21,6 @@ COPY ./client/public ./client/public
 
 RUN npm run build
 
-ENTRYPOINT ["node", "app"]
+ENTRYPOINT ["node", "./bin/www"]
 
 EXPOSE 1200

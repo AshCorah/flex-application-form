@@ -10,8 +10,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./helper-files/restore_prism_db.sh:/docker-entrypoint-initdb.d/restore_flex_db.sh
-      - ./helper-files/TestDatabase.sql:/var/tmp/TestDatabase.sql:ro
+      - ./helper-files/TestDatabase.sql:/docker-entrypoint-initdb.d/TestDatabase.sql:ro
 
   flexapplication:
     container_name: flex_application
