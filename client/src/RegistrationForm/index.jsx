@@ -24,6 +24,7 @@ export default class RegistrationForm extends Component {
     this.state = {
       firstname: '',
       surname: '',
+      cvUrl: '',
       error: null,
       formValid: true,
       registrationSuccessful: false,
@@ -31,6 +32,7 @@ export default class RegistrationForm extends Component {
 
     this.isValid = this.isValid.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.updateCvUrl = this.updateCvUrl.bind(this);
   }
 
   async onSubmit(e) {
@@ -39,14 +41,15 @@ export default class RegistrationForm extends Component {
     const {
       firstname,
       surname,
+      cvUrl,
     } = this.state;
 
     if (this.isValid()) {
       try {
-        await axios.post('/application/upload', {
+        await axios.post('/application/uploadToDb', {
           firstname,
           surname,
-          cv: "test",
+          cv: cvUrl,
         });
 
         this.setState({ formValid: true, registrationSuccessful: true });
@@ -58,14 +61,20 @@ export default class RegistrationForm extends Component {
     }
   }
 
+  updateCvUrl(publicUrl) {
+    this.setState({ cvUrl: publicUrl });
+  }
+
   isValid() {
     const {
       firstname,
       surname,
+      cvUrl,
     } = this.state;
 
     if (firstname
       && surname
+      && cvUrl
     ) {
       return true;
     }
@@ -150,7 +159,7 @@ export default class RegistrationForm extends Component {
                   <BpkLabel htmlFor="origin">
                     Please upload your cv*
                   </BpkLabel>
-                  <S3Uploader />
+                  <S3Uploader publicUrl={this.updateCvUrl} />
                 </BpkGridColumn>
               </BpkGridRow>
               <BpkGridRow>

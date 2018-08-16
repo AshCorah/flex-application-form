@@ -15,7 +15,7 @@ SET default_with_oids = false;
 
 CREATE TABLE public."Applications" (
     "firstname" character varying,
-    "lastname" character varying NOT NULL,
+    "surname" character varying NOT NULL,
     "cv" character varying NOT NULL
 );
 
