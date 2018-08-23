@@ -5,7 +5,7 @@
   "author": "Ash Corah",
   "main": "app.js",
   "scripts": {
-    "start": "cd client && npm run build && npm run dev:server",
+    "start": "cd client && npm run build && cd .. && npm run dev:server",
     "dev:server": "nodemon app.js",
     "build": "cd client && npm run build",
     "dev:client": "(cd ./client && npm start)",
