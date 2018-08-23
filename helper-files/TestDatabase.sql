@@ -16,7 +16,8 @@ SET default_with_oids = false;
 CREATE TABLE public."Applications" (
     "firstname" character varying,
     "surname" character varying NOT NULL,
-    "cv" character varying NOT NULL
+    "cv" character varying NOT NULL,
+    "work_time" character varying NOT NULL
 );
 
 ALTER TABLE public."Applications" OWNER TO docker;

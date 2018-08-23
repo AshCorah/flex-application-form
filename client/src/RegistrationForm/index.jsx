@@ -8,6 +8,7 @@ import BpkCard from 'bpk-component-card';
 import { withButtonAlignment, withRtlSupport } from 'bpk-component-icon';
 import ArrowIcon from 'bpk-component-icon/sm/long-arrow-right';
 import BpkFormValidation from 'bpk-component-form-validation';
+import BpkRadio from 'bpk-component-radio';
 import axios from 'axios';
 import S3Uploader from '../Util/S3Uploader/index';
 import SuccessMessage from '../Util/SuccessMessage/index';
@@ -27,6 +28,7 @@ export default class RegistrationForm extends Component {
       cvUrl: '',
       error: null,
       formValid: true,
+      workTime: 'Any',
       registrationSuccessful: false,
     };
 
@@ -42,6 +44,7 @@ export default class RegistrationForm extends Component {
       firstname,
       surname,
       cvUrl,
+      workTime,
     } = this.state;
 
     if (this.isValid()) {
@@ -50,6 +53,7 @@ export default class RegistrationForm extends Component {
           firstname,
           surname,
           cv: cvUrl,
+          workTime,
         });
 
         this.setState({ formValid: true, registrationSuccessful: true });
@@ -152,6 +156,29 @@ export default class RegistrationForm extends Component {
                     clearButtonLabel="Clear"
                     onClear={() => this.setState({ surname: '' })}
                   />
+                </BpkGridColumn>
+              </BpkGridRow>
+              <BpkGridRow>
+                <BpkGridColumn width={12}>
+                  <BpkLabel htmlFor="origin">
+                    What sort of work are you looking for?
+                  </BpkLabel>
+                  <BpkGridRow>
+                    <BpkGridColumn width={3}>
+                      <BpkRadio
+                        name="time"
+                        label="Part Time"
+                        onChange={() => this.setState({ workTime: 'Part Time' })}
+                      />
+                    </BpkGridColumn>
+                    <BpkGridColumn width={3}>
+                      <BpkRadio
+                        name="time"
+                        label="Full Time"
+                        onChange={() => this.setState({ workTime: 'Full Time' })}
+                      />
+                    </BpkGridColumn>
+                  </BpkGridRow>
                 </BpkGridColumn>
               </BpkGridRow>
               <BpkGridRow>
